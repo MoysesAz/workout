@@ -9,7 +9,7 @@ import UIKit
 
 final class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    private let names = ["Behavior": Behavior(),
+    private let names = ["Snap": Snap(),
 
     ]
     private lazy var uiTable: UITableView = {
