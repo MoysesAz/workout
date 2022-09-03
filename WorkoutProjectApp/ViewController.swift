@@ -7,115 +7,52 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    var valor = 0
+final class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    lazy private var panGesture = UIPanGestureRecognizer(target: self, action: #selector(pannedView))
+    private let names = ["Animations": Animations(),
 
-    lazy private var view1: UIView = {
-        let view1 = UIView(frame: CGRect(x: view.frame.width / 2 , y: view.frame.height / 2 , width: 50, height: 50))
-        view1.backgroundColor = .red
-        view1.addGestureRecognizer(panGesture)
-        view1.isUserInteractionEnabled = true
-        return view1
-    }()
-
-    lazy private var view2: UIView = {
-        let view1 = UIView(frame: CGRect(x: view.frame.width/2 - 25, y: 130 , width: 50, height: 50))
-        view1.backgroundColor = .blue
-        view1.isUserInteractionEnabled = false
-        return view1
-    }()
-
-    lazy private var view3: UIView = {
-        let view1 = UIView(frame: CGRect(x: view.frame.width/2 - 25 , y: view.frame.height - 130 , width: 50, height: 50))
-        view1.backgroundColor = .green
-        view1.isUserInteractionEnabled = false
-        return view1
-    }()
-
-
-    lazy private var dynamicAnimator: UIDynamicAnimator = {
-        let dynamicAnimator = UIDynamicAnimator(referenceView: view)
-        return dynamicAnimator
-    }()
-
-    lazy private var snapBehavior: UISnapBehavior = {
-        let snapBehavior = UISnapBehavior(item: view1, snapTo: view.center)
-        return snapBehavior
-    }()
-
-    lazy private var snapBehavior1: UISnapBehavior = {
-        let snapBehavior = UISnapBehavior(item: view1, snapTo: view3.center)
-        return snapBehavior
-    }()
-
-    lazy var snapBehavior2: UISnapBehavior = {
-        let snapBehavior = UISnapBehavior(item: view1, snapTo: view2.center)
-        return snapBehavior
+    ]
+    private lazy var uiTable: UITableView = {
+        let uiTable = UITableView(frame: .zero)
+        uiTable.translatesAutoresizingMaskIntoConstraints = false
+        return uiTable
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        print(view.frame)
-        print(view.center)
-        view.addSubview(view2)
-        view.addSubview(view3)
-        view.addSubview(view1)
-        dynamicAnimator.addBehavior(snapBehavior)
-
+        uiTable.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
+        uiTable.dataSource = self
+        uiTable.delegate = self
+        view.addSubview(uiTable)
+        setConstraints()
     }
 
-    @objc func pannedView(recognizer: UIPanGestureRecognizer){
-        switch recognizer.state {
-        case .began:
-            switch valor{
-            case 0:
-                dynamicAnimator.removeBehavior(snapBehavior)
-            case 2 :
-                dynamicAnimator.removeBehavior(snapBehavior1)
-            case 3 :
-                dynamicAnimator.removeBehavior(snapBehavior2)
-            default:
-                print("erro")
-            }
-
-        case .changed:
-            let translation = recognizer.translation(in: view)
-            view1.center = CGPoint(x: view1.center.x + translation.x,
-                                   y: view1.center.y + translation.y)
-
-            if view1.center.y > 250 && view1.center.y < 580  {
-                valor = 0
-            }
-
-            else if view1.center.y >= 250 {
-                valor = 2
-            }
-
-            else if  view1.center.y <= 580 {
-                valor = 3
-            }
-            recognizer.setTranslation(.zero, in: view)
-        case .ended, .cancelled, .failed:
-            switch valor{
-            case 0:
-                dynamicAnimator.addBehavior(snapBehavior)
-
-            case 2 :
-                dynamicAnimator.addBehavior(snapBehavior1)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let arrayViewControllers = Array(names.values)
+        navigationController?.pushViewController(arrayViewControllers[indexPath.row], animated: true)
+    }
 
 
-            case 3 :
-                dynamicAnimator.addBehavior(snapBehavior2)
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return names.count
+    }
 
-            default:
-                print("erro")
-            }
-        case .possible:
-            break
-        }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
+        let arrayNames = Array(names.keys)
+        cell.textLabel!.text = "\(arrayNames[indexPath.row])"
+        return cell
+    }
+
+    private func setConstraints(){
+        NSLayoutConstraint.activate([
+            uiTable.topAnchor.constraint(equalTo: view.topAnchor),
+            uiTable.leftAnchor.constraint(equalTo: view.leftAnchor),
+            uiTable.heightAnchor.constraint(equalTo: view.heightAnchor),
+            uiTable.widthAnchor.constraint(equalTo: view.widthAnchor)
+        ])
     }
 }
+
+
 
