@@ -100,7 +100,7 @@ class Animations: UIViewController {
         case 3 :
             dynamicAnimator.removeBehavior(snapBehavior3)
         default:
-            print(behavior.invalidValueOfAnchorView)
+            print(interactionErrors.invalidValueOfAnchorView)
         }
     }
 
