@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Animations: UIViewController {
+class Behavior: UIViewController {
 
     enum interactionErrors: Error {
         case invalidCoordenation
