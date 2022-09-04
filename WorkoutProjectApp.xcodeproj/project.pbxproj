@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		952831BD28C3B8A9007ACC8A /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952831BC28C3B8A9007ACC8A /* Snap.swift */; };
+		952831C428C4ED6E007ACC8A /* PropertyViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952831C328C4ED6E007ACC8A /* PropertyViewAnimator.swift */; };
+		952831C728C52711007ACC8A /* ReferenceConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952831C628C52711007ACC8A /* ReferenceConstraints.swift */; };
 		953FC16628C0E3D9007F4611 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FC16528C0E3D9007F4611 /* AppDelegate.swift */; };
 		953FC16828C0E3D9007F4611 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FC16728C0E3D9007F4611 /* SceneDelegate.swift */; };
 		953FC16A28C0E3D9007F4611 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FC16928C0E3D9007F4611 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		952831BC28C3B8A9007ACC8A /* Snap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
+		952831C328C4ED6E007ACC8A /* PropertyViewAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyViewAnimator.swift; sourceTree = "<group>"; };
+		952831C628C52711007ACC8A /* ReferenceConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceConstraints.swift; sourceTree = "<group>"; };
 		953FC16228C0E3D9007F4611 /* WorkoutProjectApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutProjectApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		953FC16528C0E3D9007F4611 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		953FC16728C0E3D9007F4611 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,10 +84,19 @@
 			isa = PBXGroup;
 			children = (
 				953FC16928C0E3D9007F4611 /* ViewController.swift */,
+				952831C328C4ED6E007ACC8A /* PropertyViewAnimator.swift */,
 				952831BC28C3B8A9007ACC8A /* Snap.swift */,
 				953FC17028C0E3DA007F4611 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		952831C528C526F9007ACC8A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				952831C628C52711007ACC8A /* ReferenceConstraints.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		953FC15928C0E3D9007F4611 = {
@@ -109,6 +122,7 @@
 		953FC16428C0E3D9007F4611 /* WorkoutProjectApp */ = {
 			isa = PBXGroup;
 			children = (
+				952831C528C526F9007ACC8A /* Tools */,
 				952831BE28C3C2B1007ACC8A /* Views */,
 				953FC16528C0E3D9007F4611 /* AppDelegate.swift */,
 				953FC16728C0E3D9007F4611 /* SceneDelegate.swift */,
@@ -267,7 +281,9 @@
 			files = (
 				953FC16A28C0E3D9007F4611 /* ViewController.swift in Sources */,
 				952831BD28C3B8A9007ACC8A /* Snap.swift in Sources */,
+				952831C428C4ED6E007ACC8A /* PropertyViewAnimator.swift in Sources */,
 				953FC16628C0E3D9007F4611 /* AppDelegate.swift in Sources */,
+				952831C728C52711007ACC8A /* ReferenceConstraints.swift in Sources */,
 				953FC16828C0E3D9007F4611 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
