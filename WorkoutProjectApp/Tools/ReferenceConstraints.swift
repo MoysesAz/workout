@@ -6,3 +6,17 @@
 //
 
 import Foundation
+import UIKit
+
+struct ReferenceConstraints {
+    var centerXAnchor: NSLayoutConstraint?
+    var centerYAnchor: NSLayoutConstraint?
+    var leadingAnchor: NSLayoutConstraint?
+    var trailingAnchor: NSLayoutConstraint?
+    var leftAnchor: NSLayoutConstraint?
+    var rightAnchor: NSLayoutConstraint?
+    var topAnchor: NSLayoutConstraint?
+    var bottomAnchor: NSLayoutConstraint?
+    var heightAnchor: NSLayoutConstraint?
+    var widthAnchor: NSLayoutConstraint?
+}
