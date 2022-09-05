@@ -10,8 +10,9 @@ import UIKit
 final class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     private let names = ["PropertyAnimator": PropertyViewAnimator(),
+                         "Gravity": Gravity(),
                          "Snap": Snap(),
-                         
+
     ]
     private lazy var uiTable: UITableView = {
         let uiTable = UITableView(frame: .zero)

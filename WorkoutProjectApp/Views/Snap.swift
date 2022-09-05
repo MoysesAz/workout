@@ -44,7 +44,6 @@ class Snap: UIViewController {
         return view3
     }()
 
-
     lazy private var dynamicAnimator: UIDynamicAnimator = {
         let dynamicAnimator = UIDynamicAnimator(referenceView: view)
         return dynamicAnimator
