@@ -12,7 +12,7 @@ final class ViewController: UIViewController, UITableViewDataSource, UITableView
     private let names = ["PropertyAnimator": PropertyViewAnimator(),
                          "Gravity": Gravity(),
                          "Snap": Snap(),
-
+                         "Collision": Collision()
     ]
     private lazy var uiTable: UITableView = {
         let uiTable = UITableView(frame: .zero)
